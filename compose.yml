@@ -1,0 +1,13 @@
+version: 3.7
+
+services:
+  llama_cpp_python:
+    image: ghcr.io/abetlen/llama-cpp-python:latest
+    container_name: 'chat_server'
+    restart: 'always'
+    environment:
+      - MODEL=/models/mistral-7b-instruct-v0.1.Q4_K_M.gguf
+    volumes:
+      - /home/models:/models:ro
+    ports:
+      - 8000:8000
